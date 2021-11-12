@@ -1,11 +1,12 @@
-# Title: Automating Recruiting Workflow to Hire Candidates
+## Title: Hire-o-Bot-Automating Recruiting Workflow to Hire Candidates
 
-### Type: 
+### Type
 Development
-### Product: 
+### Product 
 A complete system for recruiters
 
-### Description:
+
+### Executive Summary
 This project provides a solution based on AI for automating recruiting workflow in
 the software industry and related fields. Manually screening the resumes and interviewing
 candidates is a time-consuming and repetitive task for a recruiter, where interviewing a single
@@ -25,6 +26,26 @@ then listed for the recruiter with optional reasoning. Another component of the 
 help candidates in improving their interview skills. This works on the same principle but is a
 mock interview system and will advise candidates on how to improve the interview that they
 have given.
+
+### Overview
+- ML enabled automated hiring process.
+- Candidate Filtering using Resume Parsing (NLP)
+- Analysis of video interview:
+-   Soft Skills Analysis (CVIP) 
+-   Technical Skills Assessment (NLP)
+
+### Problem Statement 
+Our aim is to build an intelligent solution that will automate the hiring process by filtering out worthy candidates and assessing their technical and communication abilities.
+
+
+### Scope 
+- Video Interview (Using CVIP & NLP)
+-   Soft skills analysis - Confidence Attribute
+-   Technical skills assessment - Relevance to the correct answer
+- Resume parsing
+-   Using tokenization and stop word filtering
+-   PDF input
+- Questionnaire Tests 
 
 ## Objectives
 - Screening Resumes and taking out most relevant resumes. Taking out the most relevant
