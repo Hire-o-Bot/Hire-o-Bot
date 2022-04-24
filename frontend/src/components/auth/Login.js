@@ -3,8 +3,10 @@ import { CheckBox } from "../form/CheckBox";
 import EmailField from "../form/EmailField";
 import PasswordField from "../form/PasswordField";
 import SubmitButton from "../form/SubmitButton";
+import { login } from "../../state/actions/auth";
+import { connect } from "react-redux";
 
-const Login = () => {
+const Login = ({ login }) => {
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
@@ -14,6 +16,7 @@ const Login = () => {
 
   const handleFormSubmission = (e) => {
     e.preventDefault();
+    login(email, password);
   };
 
   const onChange = (e) => {
@@ -46,7 +49,7 @@ const Login = () => {
           id='password'
           value='rememberpassword'
         />
-        <SubmitButton />
+        <SubmitButton submitForm={handleFormSubmission} />
         <p className='w-full text-center'>
           Don't have an account?{" "}
           <a className='font-semibold hover:text-[#2A2A4A]' href='/register'>
@@ -58,4 +61,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default connect(null, { login })(Login);

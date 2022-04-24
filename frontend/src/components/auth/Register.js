@@ -3,20 +3,23 @@ import { CheckBox } from "../form/CheckBox";
 import EmailField from "../form/EmailField";
 import PasswordField from "../form/PasswordField";
 import SubmitButton from "../form/SubmitButton";
+import { register } from "../../state/actions/auth";
+import { connect } from "react-redux";
 
-const Register = () => {
+const Register = ({ register }) => {
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
     password2: "",
+    username: "ahmadzaheer",
   });
 
-  const { email, password, password2 } = userCredentials;
+  const { email, password, password2, username } = userCredentials;
 
   const handleFormSubmission = (e) => {
     e.preventDefault();
     if (password === password2) {
-      console.log(userCredentials);
+      register(username, email, password);
     } else {
       console.log("Password do not match");
     }
@@ -71,4 +74,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default connect(null, { register })(Register);
