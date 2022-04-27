@@ -4,12 +4,12 @@ import { IconLock, IconEye, IconInvisible } from "../icons/index";
 const PasswordField = ({ value, onChange, name, placeholder, label }) => {
   const [viewPassword, setViewPassword] = useState(false);
   return (
-    <div className='w-full relative mb-4'>
+    <div className='w-full relative mb-4 rounded-md overflow-hidden'>
       <div className='w-7 absolute top-1/2 -translate-y-1/2 left-4'>
         <IconLock fill='#444444' />
       </div>
       <input
-        className='w-full py-3 pr-3 pl-14 border border-[#cccccc] outline-none'
+        className='w-full py-2.5 pr-3 pl-14 border border-[#cccccc] outline-none'
         type={viewPassword ? "text" : "password"}
         value={value}
         onChange={(e) => onChange(e)}
