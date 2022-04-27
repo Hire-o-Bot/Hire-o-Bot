@@ -5,21 +5,22 @@ import PasswordField from "../form/PasswordField";
 import SubmitButton from "../form/SubmitButton";
 import { register } from "../../state/actions/auth";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Register = ({ register }) => {
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
     password2: "",
-    username: "ahmadzaheer",
+    role: "CANDIDATE",
   });
 
-  const { email, password, password2, username } = userCredentials;
+  const { email, password, password2, role } = userCredentials;
 
   const handleFormSubmission = (e) => {
     e.preventDefault();
     if (password === password2) {
-      register(username, email, password);
+      register(email, password, role);
     } else {
       console.log("Password do not match");
     }
@@ -30,9 +31,13 @@ const Register = ({ register }) => {
   };
 
   return (
-    <div className='min-h-screen flex items-center justify-center bg-[#EFEFEF]'>
+    <div
+      className='min-h-screen flex items-center justify-center bg-[#001E2B] bg-cover'
+      style={{ backgroundImage: `url("/media/auth-bg.png")` }}>
       <form className='w-1/3 p-10' onSubmit={(e) => handleFormSubmission(e)}>
-        <h2 className='text-center text-3xl mb-8 font-semibold'>Register</h2>
+        <h2 className='text-center text-4xl mb-8 font-semibold text-white'>
+          Candidate Register
+        </h2>
         <EmailField
           type='text'
           name='email'
@@ -62,12 +67,14 @@ const Register = ({ register }) => {
           id='password'
           value='rememberpassword'
         />
-        <SubmitButton submitForm={handleFormSubmission} />
-        <p className='w-full text-center'>
+        <SubmitButton submitForm={handleFormSubmission} value='Register' />
+        <p className='w-full text-center text-white'>
           Don't have an account?{" "}
-          <a className='font-semibold hover:text-[#2A2A4A]' href='/login'>
+          <Link
+            className='font-semibold text-white hover:text-[#00ed64] transition'
+            to='/login/candidate'>
             Login
-          </a>
+          </Link>
         </p>
       </form>
     </div>
