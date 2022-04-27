@@ -5,13 +5,6 @@ const jwt = require("jsonwebtoken");
 
 //DEFINING THE USER SCHEMA FOR USER MODEL
 const userSchema = mongoose.Schema({
-  //DEFINING THE USERNMAE PROPERTY ON USER SCHEMA
-  username: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-
   //DEFINING THE EMAIL PROPERTY ON USER SCHEMA
   email: {
     type: String,
@@ -33,6 +26,14 @@ const userSchema = mongoose.Schema({
     required: true,
     trim: true,
     minlength: 8,
+  },
+
+  //ROLE OF THE ACCOUNT
+  role: {
+    type: String,
+    enum: ["CANDIDATE", "COMPANY"],
+    default: "CANDIDATE",
+    require: true,
   },
 
   //DEFINING THE TOKENS PROPERTY WHICH IS AN ARRAY
