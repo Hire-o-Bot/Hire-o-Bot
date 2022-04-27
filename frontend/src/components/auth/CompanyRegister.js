@@ -69,6 +69,7 @@ const CompanyRegister = ({ register }) => {
           label='I agree to Terms and Conditions'
           id='password'
           value='rememberpassword'
+          dark={true}
         />
         <SubmitButton submitForm={handleFormSubmission} value='Register' />
         <p className='w-full text-center text-white'>

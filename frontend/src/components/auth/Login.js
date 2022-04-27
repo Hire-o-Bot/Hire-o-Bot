@@ -53,6 +53,7 @@ const Login = ({ login }) => {
           label='Remember my password'
           id='password'
           value='rememberpassword'
+          dark={true}
         />
         <SubmitButton submitForm={handleFormSubmission} value='Log In' />
         <p className='w-full text-center text-white'>
