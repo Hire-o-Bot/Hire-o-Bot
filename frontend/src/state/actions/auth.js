@@ -9,14 +9,14 @@ import {
 import axios from "axios";
 // import setGlobalAuthToken from "../utils/setToken";
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (email, password, role) => async (dispatch) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
 
-  const body = JSON.stringify({ email, password });
+  const body = JSON.stringify({ email, password, role });
   try {
     const res = await axios.post("/api/user/login", body, config);
     // setGlobalAuthToken(res.data.token);
@@ -31,7 +31,7 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const register = (username, email, password) => async (dispatch) => {
+export const register = (email, password) => async (dispatch) => {
   const config = {
     header: {
       "Content-Type": "application/json",
@@ -39,7 +39,6 @@ export const register = (username, email, password) => async (dispatch) => {
   };
 
   const body = {
-    username,
     email,
     password,
   };
