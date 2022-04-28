@@ -1,9 +1,10 @@
-const SubmitButton = ({ submitForm }) => {
+const SubmitButton = ({ submitForm, value }) => {
   return (
     <input
-      className='w-full p-3 mb-4 bg-[#2A2A4A] text-white font-semibold tracking-wide cursor-pointer hover:bg-[#1A1A3C] transition'
+      className='w-full p-2.5 mb-4 bg-[#00ed64] text-white font-semibold tracking-wide cursor-pointer hover:bg-[#00ed64] transition rounded-md overflow-hidden'
       type='submit'
       onClick={(e) => submitForm(e)}
+      value={value}
     />
   );
 };

@@ -3,8 +3,11 @@ import { CheckBox } from "../form/CheckBox";
 import EmailField from "../form/EmailField";
 import PasswordField from "../form/PasswordField";
 import SubmitButton from "../form/SubmitButton";
+import { login } from "../../state/actions/auth";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ login }) => {
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
@@ -14,6 +17,7 @@ const Login = () => {
 
   const handleFormSubmission = (e) => {
     e.preventDefault();
+    login(email, password);
   };
 
   const onChange = (e) => {
@@ -22,9 +26,13 @@ const Login = () => {
   };
 
   return (
-    <div className='min-h-screen flex items-center justify-center bg-[#EFEFEF]'>
+    <div
+      className='min-h-screen flex items-center justify-center bg-[#001E2B] bg-cover'
+      style={{ backgroundImage: `url("/media/auth-bg.png")` }}>
       <form className='w-1/3 p-10' onSubmit={(e) => handleFormSubmission(e)}>
-        <h2 className='text-center text-3xl mb-8 font-semibold'>Log In</h2>
+        <h2 className='text-center text-4xl mb-8 font-semibold text-white'>
+          Candidate Log In
+        </h2>
         <EmailField
           type='text'
           name='email'
@@ -46,16 +54,18 @@ const Login = () => {
           id='password'
           value='rememberpassword'
         />
-        <SubmitButton />
-        <p className='w-full text-center'>
+        <SubmitButton submitForm={handleFormSubmission} value='Log In' />
+        <p className='w-full text-center text-white'>
           Don't have an account?{" "}
-          <a className='font-semibold hover:text-[#2A2A4A]' href='/register'>
+          <Link
+            className='font-semibold text-white hover:text-[#00ed64] transition'
+            to='/register/candidate'>
             Register
-          </a>
+          </Link>
         </p>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default connect(null, { login })(Login);

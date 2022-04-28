@@ -7,15 +7,15 @@ import { register } from "../../state/actions/auth";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Register = ({ register }) => {
-  const [userCredentials, setUserCredentials] = useState({
+const CompanyRegister = ({ register }) => {
+  const [companyCredentials, setCompanyCredentials] = useState({
     email: "",
     password: "",
     password2: "",
-    role: "CANDIDATE",
+    role: "COMPANY",
   });
 
-  const { email, password, password2, role } = userCredentials;
+  const { email, password, password2, role } = companyCredentials;
 
   const handleFormSubmission = (e) => {
     e.preventDefault();
@@ -27,7 +27,10 @@ const Register = ({ register }) => {
   };
 
   const onChange = (e) => {
-    setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
+    setCompanyCredentials({
+      ...companyCredentials,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -36,7 +39,7 @@ const Register = ({ register }) => {
       style={{ backgroundImage: `url("/media/auth-bg.png")` }}>
       <form className='w-1/3 p-10' onSubmit={(e) => handleFormSubmission(e)}>
         <h2 className='text-center text-4xl mb-8 font-semibold text-white'>
-          Candidate Register
+          Company Register
         </h2>
         <EmailField
           type='text'
@@ -72,7 +75,7 @@ const Register = ({ register }) => {
           Don't have an account?{" "}
           <Link
             className='font-semibold text-white hover:text-[#00ed64] transition'
-            to='/login/candidate'>
+            to='/login/company'>
             Login
           </Link>
         </p>
@@ -81,4 +84,4 @@ const Register = ({ register }) => {
   );
 };
 
-export default connect(null, { register })(Register);
+export default connect(null, { register })(CompanyRegister);

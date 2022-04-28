@@ -3,31 +3,26 @@ import { CheckBox } from "../form/CheckBox";
 import EmailField from "../form/EmailField";
 import PasswordField from "../form/PasswordField";
 import SubmitButton from "../form/SubmitButton";
-import { register } from "../../state/actions/auth";
+import { login } from "../../state/actions/auth";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Register = ({ register }) => {
+const CompanyLogin = ({ login }) => {
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
-    password2: "",
-    role: "CANDIDATE",
   });
 
-  const { email, password, password2, role } = userCredentials;
+  const { email, password } = userCredentials;
 
   const handleFormSubmission = (e) => {
     e.preventDefault();
-    if (password === password2) {
-      register(email, password, role);
-    } else {
-      console.log("Password do not match");
-    }
+    login(email, password);
   };
 
   const onChange = (e) => {
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
+    console.log(userCredentials);
   };
 
   return (
@@ -36,7 +31,7 @@ const Register = ({ register }) => {
       style={{ backgroundImage: `url("/media/auth-bg.png")` }}>
       <form className='w-1/3 p-10' onSubmit={(e) => handleFormSubmission(e)}>
         <h2 className='text-center text-4xl mb-8 font-semibold text-white'>
-          Candidate Register
+          Company Log In
         </h2>
         <EmailField
           type='text'
@@ -54,26 +49,18 @@ const Register = ({ register }) => {
           placeholder='Password'
           label='Password'
         />
-        <PasswordField
-          type='password'
-          name='password2'
-          value={password2}
-          onChange={(e) => onChange(e)}
-          placeholder='Confirm Password'
-          label='Password'
-        />
         <CheckBox
-          label='I agree to Terms and Conditions'
+          label='Remember my password'
           id='password'
           value='rememberpassword'
         />
-        <SubmitButton submitForm={handleFormSubmission} value='Register' />
+        <SubmitButton submitForm={handleFormSubmission} value='Log In' />
         <p className='w-full text-center text-white'>
           Don't have an account?{" "}
           <Link
             className='font-semibold text-white hover:text-[#00ed64] transition'
-            to='/login/candidate'>
-            Login
+            to='/register/company'>
+            Register
           </Link>
         </p>
       </form>
@@ -81,4 +68,4 @@ const Register = ({ register }) => {
   );
 };
 
-export default connect(null, { register })(Register);
+export default connect(null, { login })(CompanyLogin);
