@@ -1,5 +1,5 @@
 const express = require("express");
-const Jobs = require("../database/models/newJob");
+const Jobs = require("../database/models/jobs");
 const router = new express.Router();
 
 // Create a new job
