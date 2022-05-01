@@ -5,10 +5,12 @@ require("dotenv").config();
 require("./database/mongoose");
 
 const userRouter = require("./routes/user");
+const jobRouter = require("./routes/jobs");
 
 app.use(express.json());
 app.use(cors());
 app.use(userRouter);
+app.use(jobRouter);
 
 // PORT
 const port = process.env.PORT || 5000;
