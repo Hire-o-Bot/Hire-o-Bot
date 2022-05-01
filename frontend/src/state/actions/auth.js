@@ -7,19 +7,19 @@ import {
   LOGIN_FAIL,
 } from "./actionTypes";
 import axios from "axios";
-// import setGlobalAuthToken from "../utils/setToken";
+import setGlobalAuthToken from "../../utils/setToken";
 
-export const login = (email, password, role) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
 
-  const body = JSON.stringify({ email, password, role });
+  const body = JSON.stringify({ email, password });
   try {
     const res = await axios.post("/api/user/login", body, config);
-    // setGlobalAuthToken(res.data.token);
+    setGlobalAuthToken(res.data.token);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
@@ -31,37 +31,40 @@ export const login = (email, password, role) => async (dispatch) => {
   }
 };
 
-export const register = (email, password) => async (dispatch) => {
-  const config = {
-    header: {
-      "Content-Type": "application/json",
-    },
-  };
+export const register =
+  (email, password, role, navigate) => async (dispatch) => {
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
 
-  const body = {
-    email,
-    password,
-  };
+    const body = {
+      email,
+      password,
+      role,
+    };
 
-  try {
-    const res = await axios.post("/api/user/register", body, config);
-    //setGlobalAuthToken(res.data.token);
-    dispatch({
-      type: REGISTER_SUCCESS,
-      payload: res.data,
-    });
-  } catch (err) {
-    console.log(err);
-    dispatch({
-      type: REGISTER_FAIL,
-    });
-  }
-};
+    try {
+      const res = await axios.post("/api/user/register", body, config);
+      setGlobalAuthToken(res.data.token);
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data,
+      });
+      navigate("/profile/setup");
+    } catch (err) {
+      console.log(err);
+      dispatch({
+        type: REGISTER_FAIL,
+      });
+    }
+  };
 
 export const loadUser = () => async (dispatch) => {
   const token = localStorage.getItem("token");
   if (token) {
-    // setGlobalAuthToken(token);
+    setGlobalAuthToken(token);
     const config = {
       headers: {
         "Content-Type": "application/json",
