@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CheckBox } from "../form/CheckBox";
-import EmailField from "../form/EmailField";
+import TextField from "../form/TextField";
 import PasswordField from "../form/PasswordField";
 import SubmitButton from "../form/SubmitButton";
 import { register } from "../../state/actions/auth";
@@ -31,20 +31,21 @@ const Register = ({ register }) => {
   };
 
   return (
-    <div
-      className='min-h-screen flex items-center justify-center bg-[#001E2B] bg-cover'
-      style={{ backgroundImage: `url("/media/auth-bg.png")` }}>
-      <form className='w-1/3 p-10' onSubmit={(e) => handleFormSubmission(e)}>
+    <div className='min-h-screen flex items-center justify-center bg-[#001E2B] bg-cover'>
+      <form
+        className='w-11/12 max-w-md p-10'
+        onSubmit={(e) => handleFormSubmission(e)}>
         <h2 className='text-center text-4xl mb-8 font-semibold text-white'>
           Candidate Register
         </h2>
-        <EmailField
+        <TextField
           type='text'
           name='email'
           value={email}
           onChange={(e) => onChange(e)}
           placeholder='Email'
           label='Email'
+          showIcon={true}
         />
         <PasswordField
           type='password'
