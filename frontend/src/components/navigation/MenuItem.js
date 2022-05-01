@@ -10,7 +10,7 @@ const MenuItem = ({ url, text, button = false, submenu }) => {
       {submenu && submenu.length > 0 ? (
         <Fragment>
           <div
-            className={`inline-block py-3 px-8 font-semibold cursor-pointer hover:text-[#00ed64] transition ${
+            className={`inline-block py-2.5 px-6 font-semibold cursor-pointer hover:text-[#4682B4] transition ${
               button
                 ? "border border-[#001E2B] bg-[#00ed64] text-[#001E2B] hover:bg-[#001E2B] hover:text-white transition rounded-md"
                 : ""
@@ -27,7 +27,7 @@ const MenuItem = ({ url, text, button = false, submenu }) => {
       ) : (
         <div>
           <Link
-            className={`inline-block py-3 px-8 font-semibold hover:text-[#00ed64] transition ${
+            className={`inline-block py-2.5 px-6 font-semibold hover:text-[#4682B4] transition ${
               button
                 ? "border border-[#001E2B] bg-[#00ed64] text-[#001E2B] hover:bg-[#001E2B] hover:text-white transition rounded-md"
                 : ""

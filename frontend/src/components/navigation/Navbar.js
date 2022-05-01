@@ -21,7 +21,7 @@ const Navbar = () => {
     { text: "Register", url: "/register", button: true, submenu: [] },
   ];
   return (
-    <header className='bg-white fixed top-0 left-0 w-full border-b border-[#cccccc] py-5'>
+    <header className='bg-white w-full border-b border-[#cccccc] py-5'>
       <div className='w-[85%] mx-auto flex justify-between items-center'>
         <div>
           <h1 className='text-4xl font-black text-[#001E2B]'>HIRE-O-BOT</h1>
