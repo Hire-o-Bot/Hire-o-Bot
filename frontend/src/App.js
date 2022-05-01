@@ -4,7 +4,8 @@ import Register from "./components/auth/Register";
 import CompanyLogin from "./components/auth/CompanyLogin";
 import CompanyRegister from "./components/auth/CompanyRegister";
 import Navbar from "./components/navigation/Navbar";
-import Dashboard from "./components/dashboard/dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
+import AddNewJob from "./components/dashboard/AddJob.js";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/register/candidate" element={<Register />} />
           <Route path="/login/company" element={<CompanyLogin />} />
           <Route path="/register/company" element={<CompanyRegister />} />
+          <Route path="/dashboard/addjob" element={<AddNewJob />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
