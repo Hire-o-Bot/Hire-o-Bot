@@ -197,12 +197,13 @@ const AddNewJob = ({ addJob }) => {
             </div>
           </div>
           <div className="pb-12 pt-6 pr-8 flex justify-end">
-            <input
+            <button
               className="w-28 p-2.5 bg-[#1A1A3C] text-white font-medium  cursor-pointer  transition rounded-md overflow-hidden"
               type="button"
               onClick={(e) => handleFormSubmission(e)}
-              value="Create Job"
-            />
+            >
+              Create Job
+            </button>
           </div>
         </form>
       </div>
