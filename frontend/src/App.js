@@ -5,7 +5,6 @@ import CompanyLogin from "./components/auth/CompanyLogin";
 import CompanyRegister from "./components/auth/CompanyRegister";
 import Dashboard from "./components/dashboard/Dashboard";
 import AddNewJob from "./components/dashboard/AddJob.js";
-import Navbar from "./components/navigation/Navbar";
 import CompanySetup from "./components/profile/company/Setup";
 import { loadUser } from "./state/actions/auth";
 import store from "./store";
@@ -28,6 +27,8 @@ function App() {
               </div>
             }
           />
+          <Route path="/dashboard/addjob" element={<AddNewJob />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/login/candidate" element={<Login />} />
           <Route
