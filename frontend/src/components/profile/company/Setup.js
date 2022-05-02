@@ -2,19 +2,28 @@ import { useState } from "react";
 import TextField from "../../form/TextField";
 import SubmitButton from "../../form/SubmitButton";
 import TextBox from "../../form/TextBox";
-const Dashboard = () => {
+import { createProfile } from "../../../state/actions/companyProfile";
+import { connect } from "react-redux";
+
+const Dashboard = ({
+  createProfile,
+  isLoading,
+  isAuthenticated,
+  userEmail,
+}) => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     website: "",
     phone: "",
-    email: "ahmadzaheerdev@gmail.com",
+    email: !isLoading && userEmail ? userEmail : "",
   });
 
   const { name, description, website, phone, email } = formData;
 
   const handleFormSubmission = (e) => {
     e.preventDefault();
+    createProfile(name, description, phone, website);
   };
 
   const onChange = (e) => {
@@ -108,5 +117,10 @@ const Dashboard = () => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  isLoading: state.auth.isLoading,
+  isAuthenticated: state.auth.isAuthenticated,
+  userEmail: state.auth.user.email,
+});
 
-export default Dashboard;
+export default connect(mapStateToProps, { createProfile })(Dashboard);

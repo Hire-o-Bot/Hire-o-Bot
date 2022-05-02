@@ -13,18 +13,14 @@ const company = (company = initialState, action) => {
   if (type === PROFILE_CREATION_SUCCESS) {
     return {
       ...company,
-      token: payload.token,
-      user: payload.user,
-      isAuthenticated: true,
+      data: payload,
       isLoading: false,
     };
   } else if (type === PROFILE_CREATION_FAIL) {
     localStorage.removeItem("token");
     return {
       ...company,
-      token: null,
-      isAuthenticated: false,
-      user: null,
+      data: null,
       isLoading: false,
     };
   }

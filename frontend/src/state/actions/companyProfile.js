@@ -13,6 +13,7 @@ export const createProfile =
     const body = JSON.stringify({ name, description, phone, website });
     try {
       const res = await axios.post("/api/profile/company", body, config);
+      console.log(res.data);
       dispatch({
         type: PROFILE_CREATION_SUCCESS,
         payload: res.data,
