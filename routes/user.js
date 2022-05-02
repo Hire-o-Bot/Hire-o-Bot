@@ -40,4 +40,18 @@ router.post("/api/user/login", async (req, res) => {
   }
 });
 
+//ROUTE TO GET USER INFO FROM TOKEN
+router.get("/api/user", auth, async (req, res) => {
+  console.log(req.user._id);
+  try {
+    const user = await User.findOne({ _id: req.user.id });
+    if (!user) {
+      return res.status(404).send({ err: "User not found" });
+    }
+    res.status(200).send(user);
+  } catch (err) {
+    res.status(500).send({ err });
+  }
+});
+
 module.exports = router;

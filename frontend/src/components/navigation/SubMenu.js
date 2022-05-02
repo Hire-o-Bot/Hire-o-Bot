@@ -7,7 +7,7 @@ const SubMenu = ({ menu }) => {
       {menu.map((item) => (
         <li className='border-b border-[#cccccc]'>
           <NavLink
-            className='py-2 px-4 block font-semibold hover:text-[#00ed64] transition'
+            className='py-2 px-4 block font-semibold hover:text-[#4682B4] transition'
             to={item.url}>
             {item.text}
           </NavLink>
