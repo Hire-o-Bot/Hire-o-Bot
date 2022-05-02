@@ -8,7 +8,7 @@ export const addJob =
     lowerRange,
     upperRange,
     jobDescription,
-    technologies
+    techList
   ) =>
   async (dispatch) => {
     const config = {
@@ -23,7 +23,7 @@ export const addJob =
       lowerRange,
       upperRange,
       jobDescription,
-      technologies,
+      techList,
     };
 
     try {
