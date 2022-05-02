@@ -39,7 +39,7 @@ const jobSchema = mongoose.Schema({
 
   //DEFINING TECHNOLOGIES PROPERTY
   technologies: {
-    type: String,
+    type: Array,
     require: true,
     trim: true,
   },
