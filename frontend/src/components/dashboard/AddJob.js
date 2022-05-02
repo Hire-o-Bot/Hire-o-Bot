@@ -11,6 +11,7 @@ const AddNewJob = ({ addJob }) => {
     upperRange: "",
     jobDescription: "",
     technologies: "",
+    techList: [],
   });
 
   const {
@@ -20,6 +21,7 @@ const AddNewJob = ({ addJob }) => {
     upperRange,
     jobDescription,
     technologies,
+    techList,
   } = jobInfo;
 
   const handleFormSubmission = async (e) => {
@@ -30,8 +32,28 @@ const AddNewJob = ({ addJob }) => {
       lowerRange,
       upperRange,
       jobDescription,
-      technologies
+      techList
     );
+  };
+
+  const onKeyPress = (e) => {
+    if (e.keyCode === 13) {
+      if (techList.indexOf(e.target.value) === -1) {
+        techList.push(e.target.value);
+        setUserCredentials({
+          ...jobInfo,
+          techList: techList,
+          technologies: "",
+        });
+        console.log(jobInfo);
+      } else {
+        console.log(jobInfo);
+        setUserCredentials({
+          ...jobInfo,
+          technologies: "",
+        });
+      }
+    }
   };
 
   const onChange = (e) => {
@@ -39,12 +61,24 @@ const AddNewJob = ({ addJob }) => {
     console.log(jobInfo);
   };
 
+  const removeTechnology = (e) => {
+    const ele = e.currentTarget.parentNode.getAttribute("data-key");
+    var index = techList.indexOf(ele);
+    if (index > -1) {
+      techList.splice(index, 1);
+      setUserCredentials({
+        ...jobInfo,
+        techList: techList,
+      });
+    }
+  };
+
   return (
     <div className="bg-[#E5E5E5]">
-      <div className="h-16 w-full bg-white shadow-xl flex items-center justify-center">
+      <div className="h-16 bg-white shadow-xl flex items-center justify-center">
         <div className="text-black font-semibold text-2xl ">Add New Job</div>
       </div>
-      <div className="flex mt-4 justify-center items-center">
+      <div className="flex mt-4 justify-center">
         <form
           className="flex flex-col  mb-12 w-[700px] h-[600px] bg-white shadow-xl border border-[1px] border-[#cccccc]"
           onSubmit={(e) => handleFormSubmission(e)}
@@ -129,20 +163,43 @@ const AddNewJob = ({ addJob }) => {
             <h1 className="font-medium text-[#333333] text-base ">
               Technologies
             </h1>
-            <input
-              className="w-full pt-2 pb-2 pr-3 pl-1 border border-t-[.5px] border-[#cccccc] outline-none"
-              type="text"
-              name="technologies"
-              value={technologies}
-              onChange={(e) => onChange(e)}
-              placeholder="React, Node"
-              label="Technologies"
-            />
+            <div className="flex flex-row justify-start items-center border border-t-[.5px] border-[#cccccc] outline-none">
+              {techList.map((ele) => {
+                return (
+                  <div
+                    className="py-2 pl-3 pr-2 m-2 bg-[#EFEFEF]  flex flex-row"
+                    key={ele}
+                    data-key={ele}
+                  >
+                    <div>{ele}</div>
+                    <button
+                      type="button"
+                      className="pl-4 font-semibold"
+                      onClick={(key) => {
+                        removeTechnology(key);
+                      }}
+                    >
+                      x
+                    </button>
+                  </div>
+                );
+              })}
+              <input
+                className="w-full pt-2 pb-2 pr-3 pl-2 my-2 outline-none"
+                type="text"
+                name="technologies"
+                value={technologies}
+                onChange={(e) => onChange(e)}
+                onKeyDown={(e) => onKeyPress(e)}
+                placeholder="React, Node etc"
+                label="Technologies"
+              />
+            </div>
           </div>
           <div className="pb-12 pt-6 pr-8 flex justify-end">
             <input
               className="w-28 p-2.5 bg-[#1A1A3C] text-white font-medium  cursor-pointer  transition rounded-md overflow-hidden"
-              type="submit"
+              type="button"
               onClick={(e) => handleFormSubmission(e)}
               value="Create Job"
             />
