@@ -29,9 +29,15 @@ function App() {
           />
 
           <Route path='/login/candidate' element={<Login />} />
+          <Route
+            path='register'
+            element={
+              <p className='text-7xl font-bold text-center mt-16'>Register</p>
+            }></Route>
           <Route path='/register/candidate' element={<Register />} />
           <Route path='/login/company' element={<CompanyLogin />} />
           <Route path='/register/company' element={<CompanyRegister />} />
+          <Route path='/login/candidate' element={<Login />} />
           <Route
             path='/profile/setup'
             element={
