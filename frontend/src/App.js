@@ -3,7 +3,6 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import CompanyLogin from "./components/auth/CompanyLogin";
 import CompanyRegister from "./components/auth/CompanyRegister";
-import Navbar from "./components/navigation/Navbar";
 import Dashboard from "./components/dashboard/Dashboard";
 import AddNewJob from "./components/dashboard/AddJob.js";
 
