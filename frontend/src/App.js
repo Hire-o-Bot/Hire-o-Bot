@@ -37,7 +37,6 @@ function App() {
           <Route path='/register/candidate' element={<Register />} />
           <Route path='/login/company' element={<CompanyLogin />} />
           <Route path='/register/company' element={<CompanyRegister />} />
-          <Route path='/login/candidate' element={<Login />} />
           <Route
             path='/profile/setup'
             element={
