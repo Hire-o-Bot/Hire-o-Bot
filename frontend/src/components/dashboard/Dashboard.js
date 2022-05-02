@@ -6,22 +6,16 @@ import editProf from "../icons/editProf.png";
 import viewProf from "../icons/viewProf.png";
 import AddNew from "../icons/addNew.png";
 import ViewAll from "../icons/viewAll.png";
-import menuIcon from "../icons/menu.png";
 import notificatonIcon from "../icons/notificationIcon.png";
 import dropDownIcon from "../icons/dropDownIcon.png";
-import AddNewJob from "./AddJob";
 
 const Dashboard = () => {
   const [isOpen, updateIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-row">
-      <div className="bg-[#1A1A3C] w-64 h-screen">
-        <div className="text-3xl font-semibold text-white font-raleway text-center pt-5 pb-3 pr-7 border-white/30 border-b border-solid">
-          HiroBot
-        </div>
-
-        <div className="ml-10 pb-5 mr-10 pt-10 border-white/30 border-b border-solid">
+    <div className="relative">
+      <div className="fixed bg-[#1A1A3C] h-screen">
+        <div className="w-[180px] ml-10 pb-5 mr-10 mt-28 border-white/30 border-b border-solid">
           <SectionHeading heading="MAIN" />
           <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2">
             <img src={homeImg} alt="hhh" className="h-5 w-5" />
@@ -31,7 +25,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="ml-10 pb-5 mr-10 pt-7 border-white/30 border-b border-solid">
+        <div className=" w-[180px] ml-10 pb-5 mr-10 pt-7 border-white/30 border-b border-solid">
           <SectionHeading heading="PROFILE" />
           <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2">
             <img src={viewProf} alt="hhh" className="h-5 w-5" />
@@ -47,7 +41,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="ml-10 pb-5 mr-10 pt-7 border-white/30 border-b border-solid">
+        <div className="w-[180px] ml-10 pb-5 mr-10 pt-7 border-white/30 border-b border-solid">
           <SectionHeading heading="JOBS" />
           <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2">
             <img src={AddNew} alt="hhh" className="h-5 w-5" />
@@ -69,11 +63,12 @@ const Dashboard = () => {
       </div>
 
       {/*Navigation Bar*/}
-      <div className="flex flex-col">
-        <div className="bg-[#1A1A3C] w-screen h-[69px] border-white/30 border-l border-solid flex flex-row justify-between items-center ">
-          {/*Menu button*/}
-          <div className="pl-10">
-            <img src={menuIcon} alt="menu icon" className="h-7 w-7" />
+      <div className="fixed w-max flex flex-col">
+        <div className="bg-[#1A1A3C] w-screen h-[69px] flex flex-row justify-between items-center ">
+          <div className="w-[260px]  flex items-center justify-center border-white/30 border-b border-r border-solid">
+            <div className="text-3xl font-semibold text-white font-raleway text-center pt-5 pb-3 pr-7 text-center">
+              HiroBot
+            </div>
           </div>
           {/*Company profile and notification button on top right corner on navigation bar*/}
           <div className="flex flex-row ">
@@ -135,7 +130,6 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <AddNewJob />
       </div>
     </div>
   );
