@@ -2,6 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { addJob } from "../../state/actions/Jobs";
 import { connect } from "react-redux";
+import ExperienceBox from "./ExperienceBox";
+import JobPosition from "./JobPositionBox";
+import ExpectedSalary from "./ExpectedSalaryBox";
+import JobDescriptionBox from "./JobDescriptionBox";
+import Technologies from "./TechnologiesBox";
+import SubmitButton from "./SubmitButton";
 
 const AddNewJob = ({ addJob }) => {
   const [jobInfo, setUserCredentials] = useState({
@@ -83,127 +89,52 @@ const AddNewJob = ({ addJob }) => {
           className="flex flex-col  mb-12 w-[700px] h-[600px] bg-white shadow-xl border border-[1px] border-[#cccccc]"
           onSubmit={(e) => handleFormSubmission(e)}
         >
-          <div className="pl-8 pt-4 w-full pr-8">
-            <h1 className="font-bold text-[#7A7C7D] text-3xl ">Job Position</h1>
-            <input
-              className="w-full pt-2.5 pb-1 pr-3 pl-1 border-b border-[#cccccc] outline-none"
-              type="text"
-              name="jobPosition"
-              value={jobPosition}
-              onChange={(e) => onChange(e)}
-              placeholder="Job Position"
-              label="Job Position"
-            />
-          </div>
+          <JobPosition
+            name="jobPosition"
+            value={jobPosition}
+            onChange={onChange}
+            placeholder="Frontend Developer e.g"
+            label="Job Position"
+          />
 
-          <div className="pl-8 pt-4 w-full pr-8">
-            <h1 className="font-medium text-[#333333] text-base ">
-              Minimum Experience
-            </h1>
-            <input
-              className="w-full pt-2 pb-2 pr-3 pl-1 border border-t-[.5px] border-[#cccccc] outline-none"
-              type="text"
-              name="minExperience"
-              value={minExperience}
-              onChange={(e) => onChange(e)}
-              placeholder="Fresh e.g."
-              label="Minimum Experience"
-            />
-          </div>
-          <div className="pl-8 pt-5 w-full pr-8 flex flex-row justify-between items-center">
-            <h1 className="font-medium text-[#333333] text-base ">
-              Expected Salary Between
-            </h1>
-            <div className="flex flex-row">
-              <p className="px-3 py-2 bg-[#CCCCCC] font-bold border border-[1px] border-r-[0px] border-[#cccccc]">
-                $
-              </p>
-              <input
-                className="pt-2 pb-2 pr-3 pl-1 w-32 border border-t-[.2px] border-[#cccccc] outline-none"
-                type="text"
-                name="lowerRange"
-                value={lowerRange}
-                onChange={(e) => onChange(e)}
-                placeholder="Lower Range"
-                label="Lower Range"
-              />
-            </div>{" "}
-            <h1 className="font-medium text-[#333333] text-base ">And</h1>
-            <div className="flex flex-row">
-              <p className="px-3 py-2 bg-[#CCCCCC] font-bold border border-[1px] border-r-[0px] border-[#cccccc]">
-                $
-              </p>
-              <input
-                className="pt-2 pb-2 pr-3 pl-1 w-32 border border-t-[.2px] border-[#cccccc] outline-none"
-                type="text"
-                name="upperRange"
-                value={upperRange}
-                onChange={(e) => onChange(e)}
-                placeholder="Upper Range"
-                label="Upper Range"
-              />
-            </div>
-          </div>
-          <div className="pl-8 pt-4 w-full pr-8">
-            <h1 className="font-medium text-[#333333] text-base ">
-              Job Description
-            </h1>
-            <textarea
-              className="w-full h-36 pt-2 pb-2 pr-3 pl-1 border border-t-[.5px] border-[#cccccc] outline-none"
-              type="text"
-              name="jobDescription"
-              value={jobDescription}
-              onChange={(e) => onChange(e)}
-              placeholder=""
-              label="Job Description"
-            />
-          </div>
+          <ExperienceBox
+            name="minExperience"
+            value={minExperience}
+            onChange={onChange}
+            placeholder="Fresh e.g"
+            label="Minimum Experience"
+          />
 
-          <div className="pl-8 pt-4 w-full pr-8">
-            <h1 className="font-medium text-[#333333] text-base ">
-              Technologies
-            </h1>
-            <div className="flex flex-row justify-start items-center border border-t-[.5px] border-[#cccccc] outline-none">
-              {techList.map((ele) => {
-                return (
-                  <div
-                    className="py-2 pl-3 pr-2 m-2 bg-[#EFEFEF]  flex flex-row"
-                    key={ele}
-                    data-key={ele}
-                  >
-                    <div>{ele}</div>
-                    <button
-                      type="button"
-                      className="pl-4 font-semibold"
-                      onClick={(key) => {
-                        removeTechnology(key);
-                      }}
-                    >
-                      x
-                    </button>
-                  </div>
-                );
-              })}
-              <input
-                className="w-full pt-2 pb-2 pr-3 pl-2 my-2 outline-none"
-                type="text"
-                name="technologies"
-                value={technologies}
-                onChange={(e) => onChange(e)}
-                onKeyDown={(e) => onKeyPress(e)}
-                placeholder="React, Node etc"
-                label="Technologies"
-              />
-            </div>
-          </div>
+          <ExpectedSalary
+            onChange={onChange}
+            lowerRange={lowerRange}
+            upperRange={upperRange}
+          />
+
+          <JobDescriptionBox
+            onChange={onChange}
+            name="jobDescription"
+            value={jobDescription}
+            placeholder=""
+            label="Job Description"
+          />
+
+          <Technologies
+            onChange={onChange}
+            removeTechnology={removeTechnology}
+            techList={techList}
+            onKeyPress={onKeyPress}
+            name="technologies"
+            value={technologies}
+            placeholder="React, Node e.g."
+            label="Technologies"
+          />
+
           <div className="pb-12 pt-6 pr-8 flex justify-end">
-            <button
-              className="w-28 p-2.5 bg-[#1A1A3C] text-white font-medium  cursor-pointer  transition rounded-md overflow-hidden"
-              type="button"
-              onClick={(e) => handleFormSubmission(e)}
-            >
-              Create Job
-            </button>
+            <SubmitButton
+              handleFormSubmission={handleFormSubmission}
+              value="Create Job"
+            />
           </div>
         </form>
       </div>
