@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "./DashboardComponents/SectionHeading";
 import homeImg from "../icons/home.png";
 import editProf from "../icons/editProf.png";
 import viewProf from "../icons/viewProf.png";

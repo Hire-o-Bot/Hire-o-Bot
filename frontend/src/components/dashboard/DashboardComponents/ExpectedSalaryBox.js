@@ -1,4 +1,4 @@
-import SalaryBox from "../SalaryInputBox";
+import SalaryBox from "./SalaryInputBox";
 import React from "react";
 
 const ExpectedSalary = ({ onChange, lowerRange, upperRange }) => {

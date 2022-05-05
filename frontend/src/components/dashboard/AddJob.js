@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { addJob } from "../../state/actions/Jobs";
 import { connect } from "react-redux";
-import ExperienceBox from "./ExperienceBox";
-import JobPosition from "./JobPositionBox";
-import ExpectedSalary from "./ExpectedSalaryBox";
-import JobDescriptionBox from "./JobDescriptionBox";
-import Technologies from "./TechnologiesBox";
-import SubmitButton from "./SubmitButton";
+import ExperienceBox from "./DashboardComponents/ExperienceBox";
+import JobPosition from "./DashboardComponents/JobPositionBox";
+import ExpectedSalary from "./DashboardComponents/ExpectedSalaryBox";
+import JobDescriptionBox from "./DashboardComponents/JobDescriptionBox";
+import Technologies from "./DashboardComponents/TechnologiesBox";
+import SubmitButton from "./DashboardComponents/SubmitButton";
 
 const AddNewJob = ({ addJob }) => {
   const [jobInfo, setUserCredentials] = useState({
