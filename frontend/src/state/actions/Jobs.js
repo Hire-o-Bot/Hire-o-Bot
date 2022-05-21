@@ -68,3 +68,28 @@ export const getJobs = () => async (dispatch) => {
     });
   }
 };
+
+export const deleteJob =
+  ({ jobID }) =>
+  async (dispatch) => {
+    const config = {
+      header: {
+        Content_Type: "application/json",
+      },
+    };
+
+    const body = { jobID };
+
+    try {
+      const res = await axios.delete("/api/jobs", body, config);
+      dispatch({
+        type: DELETE_JOBS_SUCCESS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+      dispatch({
+        type: DELETE_JOB_FAIL,
+      });
+    }
+  };
