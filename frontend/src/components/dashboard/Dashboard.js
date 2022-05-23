@@ -8,6 +8,7 @@ import AddNew from "../icons/addNew.png";
 import ViewAll from "../icons/viewAll.png";
 import notificatonIcon from "../icons/notificationIcon.png";
 import dropDownIcon from "../icons/dropDownIcon.png";
+import Jobs from "./Jobs";
 
 const Dashboard = () => {
   const [isOpen, updateIsOpen] = useState(false);
@@ -17,7 +18,7 @@ const Dashboard = () => {
       <div className="fixed bg-[#1A1A3C] h-screen">
         <div className="w-[180px] ml-10 pb-5 mr-10 mt-28 border-white/30 border-b border-solid">
           <SectionHeading heading="MAIN" />
-          <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2">
+          <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2 cursor-pointer">
             <img src={homeImg} alt="hhh" className="h-5 w-5" />
             <div className="pl-4">
               <p>Dashboard</p>
@@ -27,13 +28,13 @@ const Dashboard = () => {
 
         <div className=" w-[180px] ml-10 pb-5 mr-10 pt-7 border-white/30 border-b border-solid">
           <SectionHeading heading="PROFILE" />
-          <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2">
+          <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2 cursor-pointer">
             <img src={viewProf} alt="hhh" className="h-5 w-5" />
             <div className="pl-4">
               <p>View Profile</p>
             </div>
           </div>
-          <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2">
+          <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2 cursor-pointer">
             <img src={editProf} alt="hhh" className="h-5 w-5" />
             <div className="pl-4">
               <p>Edit Profile</p>
@@ -43,7 +44,7 @@ const Dashboard = () => {
 
         <div className="w-[180px] ml-10 pb-5 mr-10 pt-7 border-white/30 border-b border-solid">
           <SectionHeading heading="JOBS" />
-          <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2">
+          <div className="text-white font-raleway font-semibold text-base flex flex-row mt-2 cursor-pointer">
             <img src={AddNew} alt="hhh" className="h-5 w-5" />
             <div className="pl-4">
               <p>Add New Job</p>
@@ -51,7 +52,7 @@ const Dashboard = () => {
           </div>
 
           <div
-            className="text-white font-raleway font-semibold text-base flex flex-row mt-2 "
+            className="text-white font-raleway font-semibold text-base flex flex-row mt-2 cursor-pointer"
             style={{ marginLeft: "-5px" }}
           >
             <img src={ViewAll} alt="hhh" className="h-7 w-7" />
@@ -131,6 +132,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <Jobs />
     </div>
   );
 };
