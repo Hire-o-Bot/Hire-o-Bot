@@ -80,13 +80,13 @@ const AddNewJob = ({ addJob }) => {
   };
 
   return (
-    <div className="bg-[#E5E5E5]">
-      <div className="h-16 bg-white shadow-xl flex items-center justify-center">
+    <div className="bg-[#F5F5F5]">
+      <div className="h-16 bg-white shadow-lg flex items-center justify-center">
         <div className="text-black font-semibold text-2xl ">Add New Job</div>
       </div>
       <div className="flex mt-4 justify-center">
         <form
-          className="flex flex-col  mb-12 w-[700px] h-[600px] bg-white shadow-xl border border-[1px] border-[#cccccc]"
+          className="flex flex-col  mb-12 w-[700px] h-[600px] bg-white shadow-xl "
           onSubmit={(e) => handleFormSubmission(e)}
         >
           <JobPosition
