@@ -1,4 +1,9 @@
-import { LOAD_JOBS_FAIL, LOAD_JOBS_SUCCESS } from "../actions/actionTypes";
+import {
+  LOAD_JOBS_FAIL,
+  LOAD_JOBS_SUCCESS,
+  DELETE_JOB_FAIL,
+  DELETE_JOB_SUCCESS,
+} from "../actions/actionTypes";
 
 const initialState = {
   isLoading: true,
@@ -18,6 +23,13 @@ const jobs = (jobs = initialState, action) => {
       ...jobs,
       jobs: null,
       isLoading: false,
+    };
+  } else if (type === DELETE_JOB_SUCCESS) {
+    const newState = jobs.filter((job) => job.id !== action.id); // Use filter method to remoreove the item that has been deleted from the st
+    return newState;
+  } else if (type === DELETE_JOB_FAIL) {
+    return {
+      ...jobs,
     };
   }
   return jobs;
