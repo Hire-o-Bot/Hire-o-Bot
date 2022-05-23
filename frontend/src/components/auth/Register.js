@@ -6,8 +6,10 @@ import SubmitButton from "../form/SubmitButton";
 import { register } from "../../state/actions/auth";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Register = ({ register }) => {
+  const navigate = useNavigate();
   const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
@@ -20,7 +22,7 @@ const Register = ({ register }) => {
   const handleFormSubmission = (e) => {
     e.preventDefault();
     if (password === password2) {
-      register(email, password, role);
+      register(email, password, role, navigate);
     } else {
       console.log("Password do not match");
     }
