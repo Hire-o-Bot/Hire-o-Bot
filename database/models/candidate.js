@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 
 const candidateSchema = mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+
   //CANDIDATE NAME
   name: {
     type: String,
@@ -28,7 +34,7 @@ const candidateSchema = mongoose.Schema({
   },
 
   //GITHUB PROFILE URL
-  gitHub: {
+  github: {
     type: String,
     trim: true,
   },
@@ -41,7 +47,7 @@ const candidateSchema = mongoose.Schema({
         required: true,
       },
       joinDate: {
-        type: Date,
+        type: String,
         required: true,
       },
       endDate: {
@@ -67,8 +73,8 @@ const candidateSchema = mongoose.Schema({
         required: true,
         trim: true,
       },
-      startDate: {
-        type: Date,
+      joinDate: {
+        type: String,
         required: true,
       },
       endDate: {
@@ -97,6 +103,6 @@ const candidateSchema = mongoose.Schema({
   ],
 });
 
-const Candidate = mongoose.Model("Candidate", candidateSchema);
+const Candidate = mongoose.model("Candidate", candidateSchema);
 
 module.exports = Candidate;
