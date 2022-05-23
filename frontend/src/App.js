@@ -5,10 +5,12 @@ import CompanyLogin from "./components/auth/CompanyLogin";
 import CompanyRegister from "./components/auth/CompanyRegister";
 import Navbar from "./components/navigation/Navbar";
 import CompanySetup from "./components/profile/company/Setup";
+import CandidateProfileSetup from "./components/profile/candidate/Setup";
 import { loadUser } from "./state/actions/auth";
 import store from "./store";
 import { useEffect } from "react";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import JobSearch from "./components/search/JobSearch";
 
 function App() {
   useEffect(() => {
@@ -37,11 +39,20 @@ function App() {
           <Route path='/register/candidate' element={<Register />} />
           <Route path='/login/company' element={<CompanyLogin />} />
           <Route path='/register/company' element={<CompanyRegister />} />
+          <Route path='/search' element={<JobSearch />} />
           <Route
-            path='/profile/setup'
+            path='/profile/company/setup'
             element={
-              <ProtectedRoute>
+              <ProtectedRoute authenticatedAs={"COMPANY"}>
                 <CompanySetup />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/profile/candidate/setup'
+            element={
+              <ProtectedRoute authenticatedAs={"CANDIDATE"}>
+                <CandidateProfileSetup />
               </ProtectedRoute>
             }
           />
