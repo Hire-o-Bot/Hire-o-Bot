@@ -10,6 +10,9 @@ import { loadUser } from "./state/actions/auth";
 import store from "./store";
 import { useEffect } from "react";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import Jobs from "./components/dashboard/Jobs";
+import ViewJob from "./components/dashboard/DashboardComponents/ViewJob";
+import VideoCall from "./components/interview/VideoCall";
 
 function App() {
   useEffect(() => {
@@ -27,9 +30,11 @@ function App() {
               </div>
             }
           />
+          <Route path="/video" element={<VideoCall />} />
+          <Route path="/view" element={<ViewJob />} />
           <Route path="/dashboard/addjob" element={<AddNewJob />} />
+          <Route path="/dashboard/jobs" element={<Jobs />} />
           <Route path="/dashboard" element={<Dashboard />} />
-
           <Route path="/login/candidate" element={<Login />} />
           <Route
             path="register"
