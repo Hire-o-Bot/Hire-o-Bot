@@ -24,7 +24,6 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar />
         <Routes>
           <Route
             path='/'
@@ -34,16 +33,16 @@ function App() {
               </div>
             }
           />
-          <Route path='/dashboard/addjob' element={<AddNewJob />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard'>
+            <Route index={true} element={<Dashboard />} />
+          </Route>
 
           <Route path='/login/candidate' element={<Login />} />
-          <Route path="/video" element={<VideoCall />} />
-          <Route path="/view" element={<ViewJob />} />
-          <Route path="/dashboard/addjob" element={<AddNewJob />} />
-          <Route path="/dashboard/jobs" element={<Jobs />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login/candidate" element={<Login />} />
+          <Route path='/video' element={<VideoCall />} />
+          <Route path='/view' element={<ViewJob />} />
+          <Route path='/dashboard/jobs' element={<Jobs />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/login/candidate' element={<Login />} />
           <Route
             path='register'
             element={
