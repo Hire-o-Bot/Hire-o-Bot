@@ -6,11 +6,13 @@ require("./database/mongoose");
 
 const userRouter = require("./routes/user");
 const companyRouter = require("./routes/company");
+const candidateRouter = require("./routes/candidate");
 
 app.use(express.json());
 app.use(cors());
 app.use(userRouter);
 app.use(companyRouter);
+app.use(candidateRouter);
 
 // PORT
 const port = process.env.PORT || 5000;
