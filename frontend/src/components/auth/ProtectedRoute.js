@@ -3,11 +3,16 @@ import { Route, Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-const ProtectedRoute = ({ auth: { isAuthenticated, isLoading }, children }) => {
+const ProtectedRoute = ({
+  auth: { isAuthenticated, isLoading, user },
+  authenticatedAs,
+  children,
+}) => {
   if (isLoading) {
     return <Fragment></Fragment>;
   } else {
-    if (!isAuthenticated) {
+    const { role } = user;
+    if (!isAuthenticated || role !== authenticatedAs) {
       return <Navigate to='/' replace />;
     }
 
