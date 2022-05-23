@@ -5,12 +5,7 @@ import TextBox from "../../form/TextBox";
 import { createProfile } from "../../../state/actions/companyProfile";
 import { connect } from "react-redux";
 
-const Dashboard = ({
-  createProfile,
-  isLoading,
-  isAuthenticated,
-  userEmail,
-}) => {
+const Dashboard = ({ createProfile, isLoading, userEmail }) => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -32,8 +27,8 @@ const Dashboard = ({
   };
 
   return (
-    <div className='min-h-screen py-16 flex items-center justify-center bg-[#001E2B]'>
-      <div className='w-4/5 max-w-3xl border border-[#cccccc] border-t-8 rounded-md shadow-lg bg-white'>
+    <div className='min-h-screen py-16 flex items-center justify-center bg-[#eaeaea]'>
+      <div className='w-4/5 max-w-3xl border border-t-[#001E2B] border-[#cccccc] border-t-8 rounded-md shadow-lg bg-white'>
         <div className='py-5 px-8'>
           <h1 className='text-2xl font-bold'>Setup your Company's Profile</h1>
         </div>
@@ -110,6 +105,7 @@ const Dashboard = ({
             <SubmitButton
               submitForm={handleFormSubmission}
               value='Create Profile'
+              alignRight={true}
             />
           </form>
         </div>
@@ -119,7 +115,6 @@ const Dashboard = ({
 };
 const mapStateToProps = (state) => ({
   isLoading: state.auth.isLoading,
-  isAuthenticated: state.auth.isAuthenticated,
   userEmail: state.auth.user.email,
 });
 
