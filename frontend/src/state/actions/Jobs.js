@@ -3,9 +3,8 @@ import {
   JOB_CREATION_SUCCESS,
   LOAD_JOBS_FAIL,
   LOAD_JOBS_SUCCESS,
-  DELETE_JOB_SUCCESS,
   DELETE_JOB_FAIL,
-  DELETE_JOBS_SUCCESS,
+  DELETE_JOB_SUCCESS,
 } from "./actionTypes";
 import axios from "axios";
 
@@ -81,9 +80,9 @@ export const deleteJob =
     const body = { jobID };
 
     try {
-      const res = await axios.delete("/api/jobs", body, config);
+      const res = await axios.delete("/api/jobs/delete", body, config);
       dispatch({
-        type: DELETE_JOBS_SUCCESS,
+        type: DELETE_JOB_SUCCESS,
         payload: res.data,
       });
     } catch (err) {
