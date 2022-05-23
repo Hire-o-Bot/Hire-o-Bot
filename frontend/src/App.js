@@ -3,7 +3,8 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import CompanyLogin from "./components/auth/CompanyLogin";
 import CompanyRegister from "./components/auth/CompanyRegister";
-import Navbar from "./components/navigation/Navbar";
+import Dashboard from "./components/dashboard/Dashboard";
+import AddNewJob from "./components/dashboard/AddJob.js";
 import CompanySetup from "./components/profile/company/Setup";
 import CandidateProfileSetup from "./components/profile/candidate/Setup";
 import { loadUser } from "./state/actions/auth";
@@ -11,6 +12,7 @@ import store from "./store";
 import { useEffect } from "react";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import JobSearch from "./components/search/JobSearch";
+import Navbar from "./components/navigation/Navbar";
 
 function App() {
   useEffect(() => {
@@ -29,6 +31,8 @@ function App() {
               </div>
             }
           />
+          <Route path='/dashboard/addjob' element={<AddNewJob />} />
+          <Route path='/dashboard' element={<Dashboard />} />
 
           <Route path='/login/candidate' element={<Login />} />
           <Route

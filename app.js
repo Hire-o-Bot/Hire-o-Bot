@@ -5,12 +5,14 @@ require("dotenv").config();
 require("./database/mongoose");
 
 const userRouter = require("./routes/user");
+const jobRouter = require("./routes/jobs");
 const companyRouter = require("./routes/company");
 const candidateRouter = require("./routes/candidate");
 
 app.use(express.json());
 app.use(cors());
 app.use(userRouter);
+app.use(jobRouter);
 app.use(companyRouter);
 app.use(candidateRouter);
 
