@@ -52,7 +52,8 @@ export const register =
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
-      navigate("/profile/setup");
+      if (role === "CANDIDATE") navigate("/profile/candidate/setup");
+      else navigate("/profile/company/setup");
     } catch (err) {
       console.log(err);
       dispatch({

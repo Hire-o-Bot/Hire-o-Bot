@@ -6,12 +6,39 @@ const Jobs = () => {
   const [jobs, setJobs] = useState([
     {
       jobPosition: "Frontend developer",
-      minExperience: "11",
-      lowerRange: "120",
-      upperRange: "130",
+      minExperience: "3",
+      lowerRange: "30000",
+      upperRange: "40000",
       jobDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
-      technologies: ["ReactJS", "redux", "Angular", "mobx"],
+        "Job is for only the skilled candidates. Those with one year experience can only apply.",
+      technologies: ["ReactJS", "HTML", "Javascript", "CSS"],
+    },
+    {
+      jobPosition: "Frontend developer",
+      minExperience: "3",
+      lowerRange: "30000",
+      upperRange: "40000",
+      jobDescription:
+        "Job is for only the skilled candidates. Those with one year experience can only apply.",
+      technologies: ["ReactJS", "HTML", "Javascript", "CSS"],
+    },
+    {
+      jobPosition: "Frontend developer",
+      minExperience: "3",
+      lowerRange: "30000",
+      upperRange: "40000",
+      jobDescription:
+        "Job is for only the skilled candidates. Those with one year experience can only apply.",
+      technologies: ["ReactJS", "HTML", "Javascript", "CSS"],
+    },
+    {
+      jobPosition: "Frontend developer",
+      minExperience: "3",
+      lowerRange: "30000",
+      upperRange: "40000",
+      jobDescription:
+        "Job is for only the skilled candidates. Those with one year experience can only apply.",
+      technologies: ["ReactJS", "HTML", "Javascript", "CSS"],
     },
   ]);
   return (

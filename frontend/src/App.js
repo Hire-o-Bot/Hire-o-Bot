@@ -4,7 +4,7 @@ import Register from "./components/auth/Register";
 import CompanyLogin from "./components/auth/CompanyLogin";
 import CompanyRegister from "./components/auth/CompanyRegister";
 import Dashboard from "./components/dashboard/Dashboard";
-import AddNewJob from "./components/dashboard/AddJob.js";
+import AddJob from "./components/dashboard/AddJobWrapper.js";
 import CompanySetup from "./components/profile/company/Setup";
 import CandidateProfileSetup from "./components/profile/candidate/Setup";
 import { loadUser } from "./state/actions/auth";
@@ -13,7 +13,7 @@ import { useEffect } from "react";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import JobSearch from "./components/search/JobSearch";
 import Navbar from "./components/navigation/Navbar";
-import Jobs from "./components/dashboard/Jobs";
+import Jobs from "./components/dashboard/JobsWrapper";
 import ViewJob from "./components/dashboard/DashboardComponents/ViewJob";
 import VideoCall from "./components/interview/VideoCall";
 
@@ -33,10 +33,9 @@ function App() {
               </div>
             }
           />
-          <Route path='/dashboard'>
-            <Route index={true} element={<Dashboard />} />
-          </Route>
-
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard/addjob' element={<AddJob />} />
+          <Route path='/dashboard/alljobs' element={<Jobs />} />
           <Route path='/login/candidate' element={<Login />} />
           <Route path='/video' element={<VideoCall />} />
           <Route path='/view' element={<ViewJob />} />

@@ -8,8 +8,9 @@ import ExpectedSalary from "./DashboardComponents/ExpectedSalaryBox";
 import JobDescriptionBox from "./DashboardComponents/JobDescriptionBox";
 import Technologies from "./DashboardComponents/TechnologiesBox";
 import SubmitButton from "./DashboardComponents/SubmitButton";
-
+import { useNavigate } from "react-router-dom";
 const AddNewJob = ({ addJob }) => {
+  const navigate = useNavigate();
   const [jobInfo, setUserCredentials] = useState({
     jobPosition: "",
     minExperience: "",
@@ -38,7 +39,8 @@ const AddNewJob = ({ addJob }) => {
       lowerRange,
       upperRange,
       jobDescription,
-      techList
+      techList,
+      navigate
     );
   };
 
@@ -80,15 +82,14 @@ const AddNewJob = ({ addJob }) => {
   };
 
   return (
-    <div className="bg-[#F5F5F5]">
-      <div className="h-16 bg-white shadow-lg flex items-center justify-center">
-        <div className="text-black font-semibold text-2xl ">Add New Job</div>
+    <div className='bg-[#F5F5F5]'>
+      <div className='h-16 bg-white shadow-lg flex items-center justify-center'>
+        <div className='text-black font-semibold text-2xl '>Add New Job</div>
       </div>
       <div className='flex mt-4 justify-center'>
         <form
-          className="flex flex-col  mb-12 w-[700px] h-[600px] bg-white shadow-xl "
-          onSubmit={(e) => handleFormSubmission(e)}
-        >
+          className='flex flex-col  mb-12 w-[700px] h-[600px] bg-white shadow-xl '
+          onSubmit={(e) => handleFormSubmission(e)}>
           <JobPosition
             name='jobPosition'
             value={jobPosition}

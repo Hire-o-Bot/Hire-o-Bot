@@ -4,8 +4,10 @@ import SubmitButton from "../../form/SubmitButton";
 import TextBox from "../../form/TextBox";
 import { createProfile } from "../../../state/actions/companyProfile";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = ({ createProfile, isLoading, userEmail }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -18,7 +20,7 @@ const Dashboard = ({ createProfile, isLoading, userEmail }) => {
 
   const handleFormSubmission = (e) => {
     e.preventDefault();
-    createProfile(name, description, phone, website);
+    createProfile(name, description, phone, website, navigate);
   };
 
   const onChange = (e) => {

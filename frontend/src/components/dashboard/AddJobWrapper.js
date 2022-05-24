@@ -8,9 +8,8 @@ import AddNew from "../icons/addNew.png";
 import ViewAll from "../icons/viewAll.png";
 import notificatonIcon from "../icons/notificationIcon.png";
 import dropDownIcon from "../icons/dropDownIcon.png";
-import Jobs from "./Jobs";
-import { Link } from "react-router-dom";
 import AddJob from "./AddJob";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [isOpen, updateIsOpen] = useState(false);
@@ -118,6 +117,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </Link>
+
               <Link to='/dashboard/alljobs'>
                 <div
                   className='text-white font-raleway font-semibold text-base flex flex-row mt-2 cursor-pointer'
@@ -131,7 +131,9 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className='bg-[#eaeaea] flex-1 overflow-y-scroll'></div>
+          <div className='bg-[#eaeaea] flex-1 overflow-y-scroll'>
+            <AddJob />
+          </div>
         </div>
       </div>
     </div>

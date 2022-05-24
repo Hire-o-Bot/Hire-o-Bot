@@ -55,8 +55,8 @@ const Jobs = ({ jobs, isLoading, getJobs }) => {
                 </div>
                 <JobItem
                   jobID={"1"}
-                  jobPosition={"Frontend Developer"}
-                  applications={"22"}
+                  jobPosition={"Full Stack Developer"}
+                  applications={"0"}
                   jobStatus={"Active"}
                   jobAction={"Delete"}
                 />

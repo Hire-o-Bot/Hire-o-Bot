@@ -15,7 +15,8 @@ export const addJob =
     lowerRange,
     upperRange,
     jobDescription,
-    techList
+    techList,
+    navigate
   ) =>
   async (dispatch) => {
     const config = {
@@ -39,6 +40,8 @@ export const addJob =
         type: JOB_CREATION_SUCCESS,
         payload: res.data,
       });
+
+      navigate("/dashboard/alljobs");
     } catch (err) {
       console.log(err);
       dispatch({
